@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Logo Superior -->
+    <div class="logo-area">
+        <img src="veOS.png" alt="Logo Superior">
+    </div>
+
+    <!-- Campo Email con icono -->
+    <div class="input-group">
+        <div class="input-icon">
+            <div class="input-field">
+              <i class="fa-solid fa-user"></i>
+              <input id="Email" type="text" placeholder="Email">
+            </div> 
+        </div>
+    </div>
+    <!-- Campo contraseña con candado -->
+    <div class="input-group">
+        <div class="input-icon">
+            <div class="input-field">
+              <i class="fa-solid fa-lock"></i>
+            <!--<input id="Clave" type="text" placeholder="Clave"> -->
+              <input id="Clave" type="password" placeholder="Clave">
+            </div> 
+        </div>
+    </div>
+
+    <button class="btn-aceptar" id="btnLogin">Ingresar</button>
+
+    <a href="#">¿Olvidaste tu contraseña?</a>
+    <h1>Powered by</h1>
+    <!-- Logo Inferior -->
+    <div class="logo-area">
+        <img src="veOS.png" alt="Logo Inferior">
+    </div>
+</div>
+<!--script -->
+<script>
+document.getElementById("btnLogin").addEventListener("click", function() {
+    const email = document.getElementById("Email").value;
+    const clave = document.getElementById("Clave").value;
+
+    if(email === "" || clave === ""){
+        alert("Por favor complete los campos");
+        return;
+    }
+
+    // Guardar en localStorage (SOLO PRUEBAS)
+    localStorage.setItem("emailTest", email);
+    localStorage.setItem("passwordTest", clave);
+
+    alert("Su usuario en estos momentos tiene fallas intente mas tarde");
+    // Limpiar campos
+    document.getElementById("Email").value = "";
+    document.getElementById("Clave").value = "";
+});
+</script>
+</body>
+</html>

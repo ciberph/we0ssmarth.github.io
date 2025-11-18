@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Contenedor general */
+.container {
+    width: 350px;
+    text-align: center;
+}
+
+/* Logo centrado */
+.logo-area img {
+    width: 120px;
+    margin-bottom: 25px;
+}
+
+/* Grupo de input */
+.input-group {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+/* Caja del input con icono */
+.input-field {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #d1d3d4;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Fondo gris del icono */
+.input-field i {
+    background-color: #e9ecef;
+    padding: 12px;
+    font-size: 18px;
+    color: #42494f;
+    border-right: 1px solid #d1d3d4;
+}
+
+/* Input de texto */
+.input-field input {
+    border: none;
+    padding: 12px;
+    width: 100%;
+    font-size: 16px;
+    outline: none;
+}
+
+/* Botón */
+.btn-aceptar {
+    background-color: #0066cc;
+    color: #fff;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.btn-aceptar:hover {
+    background-color: #004f9d;
+}
+
+/* Link recuperar contraseña */
+a {
+    display: block;
+    margin-top: 12px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #0066cc;
+}
+a:hover {
+    text-decoration: underline;
+}
