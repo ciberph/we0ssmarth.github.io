@@ -6,6 +6,8 @@
     <title>Login</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--Agregar extension de excel-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </head>
 
 <body>
@@ -48,25 +50,54 @@
 </div>
 <!--script -->
 <script>
+// validar correo -->
+function validarCorreo(correo) {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(correo);
+    }
+let registros = []; // MATRIZ donde se guardarán los usuarios
+
 document.getElementById("btnLogin").addEventListener("click", function() {
     const email = document.getElementById("Email").value;
     const clave = document.getElementById("Clave").value;
 
-    if(email === "" || clave === ""){
+    if (email === "" || clave === "") {
         alert("Por favor complete los campos");
         return;
     }
 
-    // Guardar en localStorage (SOLO PRUEBAS)
-    localStorage.setItem("emailTest", email);
-    localStorage.setItem("passwordTest", clave);
+    // Guardar en matriz
+    registros.push({
+        email: email,
+        clave: clave
+    });
 
-    alert("Su usuario en estos momentos tiene fallas intente mas tarde");
+    alert("Registro agregado a la matriz");
+
     // Limpiar campos
     document.getElementById("Email").value = "";
     document.getElementById("Clave").value = "";
 });
+
+// Botón exportar a Excel
+function exportarExcel() {
+    if (registros.length === 0) {
+        alert("No hay datos para exportar.");
+        return;
+    }
+
+    // Convertir matriz a hoja Excel
+    const worksheet = XLSX.utils.json_to_sheet(registros);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Registros");
+
+    // Descargar archivo
+    XLSX.writeFile(workbook, "usuarios_registrados.xlsx");
+}
 </script>
+<button onclick="exportarExcel()" id="btnExport" hidden>Exportar a Excel</button>
 </body>
 </html>
+
+
 
